@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 //models
 use App\artikel;
 
-//transformer fractal API
+//transformer fractal APIS
 use App\Transformer\ArtikelTransformer;
 
 
