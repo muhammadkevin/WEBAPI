@@ -26,9 +26,9 @@ class ArtikelController extends Controller
 
     public function artikel($id)
     {
-        $ftb = foto_blog::with(['Kategori', 'FotoBlog'])->find($id);
-        $ftb = fractal($ftb, new FotoBlogTransformer())->toArray();        
-        return response()->json($ftb);
+        $artikel = artikel::with(['Kategori', 'FotoBlog'])->find($id);
+        $artikel = fractal($artikel, new FotoBlogTransformer())->toArray();        
+        return response()->json($artikel);
     }
 
 
