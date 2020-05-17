@@ -19,11 +19,8 @@ class ArtikelController extends Controller
 {
     public function dashboard()
     {
-        $artikel = artikel::all();
-        $artikel = fractal()
-                    ->collection($artikel)
-                    ->transformWith(new ArtikelTransformer())
-                    ->toArray();        
+        $artikel = artikel::find(1);
+        $artikel = fractal($artikel, new ArtikelTransformer())->toArray();        
         return response()->json($artikel);
     }
 

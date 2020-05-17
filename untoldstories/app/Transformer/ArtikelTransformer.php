@@ -1,8 +1,10 @@
 <?php
 namespace App\Transformer;
 
-use App\artikel;
 use League\Fractal\TransformerAbstract;
+use App\artikel;
+use App\Transformer\FotoBlogTransformer;
+
 
 class ArtikelTransformer extends TransformerAbstract 
 {
