@@ -27,7 +27,7 @@ class ArtikelController extends Controller
     public function artikel($id)
     {
         $artikel = artikel::with(['Kategori', 'FotoBlog'])->find($id);
-        $artikel = fractal($artikel, new FotoBlogTransformer())->toArray();        
+        $artikel = fractal($artikel, new ArtikelTransformer())->toArray();        
         return response()->json($artikel);
     }
 
