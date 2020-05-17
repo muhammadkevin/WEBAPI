@@ -237,9 +237,9 @@
       </div>
       <div class="modal-body text-center">
     <!-- form -->
-        <form action="{{ url('/admin/artikel/urlimage') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
-          <input type="hidden" name="artikel_id" id="artikldss">
+          <input type="hidden" name="idurl" id="artikldss">
           <input type="text" name="url" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">

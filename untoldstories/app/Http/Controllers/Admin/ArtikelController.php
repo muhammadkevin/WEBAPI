@@ -47,9 +47,9 @@ class ArtikelController extends Controller
     	return redirect('admin/kelola');
     }
 
-    public function urlimage(Reques $request)
+    public function urlimages(Reques $request)
     {
-        foto_blog::where('artikel_id', $request->artikel_id)->update(['url' => $request->url]);
+        $url = foto_blog::where('artikel_id', $request->idurl)->update(['url' => $request->url]);
         return redirect('admin/kelola');
     }
 
