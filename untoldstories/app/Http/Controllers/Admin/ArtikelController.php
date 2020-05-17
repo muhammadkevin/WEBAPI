@@ -47,6 +47,12 @@ class ArtikelController extends Controller
     	return redirect('admin/kelola');
     }
 
+    public function urlimage(Reques $request)
+    {
+        foto_blog::where('artikel_id', $request->artikel_id)->update(['url' => $request->url]);
+        return redirect('admin/kelola');
+    }
+
     public function edittitle(Request $request)
     {
         $artikel = artikel::find($request->id_artikel);

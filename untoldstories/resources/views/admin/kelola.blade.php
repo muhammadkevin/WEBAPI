@@ -226,7 +226,7 @@
 </div>
 
 <!-- Modal Url -->
-<div class="modal fade" id="modal-url" tabindex="-1" role="dialog" aria-labelledby="modalGambarLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-xl" id="modal-url" tabindex="-1" role="dialog" aria-labelledby="modalGambarLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -237,9 +237,9 @@
       </div>
       <div class="modal-body text-center">
     <!-- form -->
-        <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/artikel/urlimage') }}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
-          <input type="text" name="artikel_id" id="artikldss">
+          <input type="hidden" name="artikel_id" id="artikldss">
           <input type="text" name="url" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">
