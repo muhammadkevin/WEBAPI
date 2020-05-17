@@ -237,10 +237,10 @@
       </div>
       <div class="modal-body text-center">
     <!-- form -->
-        <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/artikelurlimage') }}" method="POST">
           {{ csrf_field() }}
-          <input type="hidden" name="idurl" id="artikldss">
-          <input type="text" name="url" id="imgurl" class="form-control">
+          <input type="text" name="idurl" id="artikldss">
+          <input type="text" name="urlss" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

@@ -37,7 +37,7 @@ Route::post('/artikel/comment', 'ArtikelController@commentpost');
 	Route::post('/admin/artikelpost', 'Admin\ArtikelController@artikelpost');
 	Route::post('/admin/edittitle', 'Admin\ArtikelController@edittitle');
 	Route::post('/admin/editgambar', 'Admin\ArtikelController@editgambar');
-	Route::post('/admin/artikelurlimage', 'Admin\ArtikelController@urlimages');
+	Route::post('/admin/artikelurlimage', 'Admin\ArtikelController@url');
 	Route::get('/admin/artikeledit/{id}', 'Admin\ArtikelController@artikeledit');
 	Route::post('/admin/editpost', 'Admin\ArtikelController@editpost');
 	Route::get('/admin/hapuspost/{id}', 'Admin\ArtikelController@deleteproc');
