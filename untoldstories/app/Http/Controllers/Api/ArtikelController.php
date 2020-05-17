@@ -19,18 +19,15 @@ class ArtikelController extends Controller
 {
     public function dashboard()
     {
-        $artikel = artikel::with(['Kategori','FotoBlog'])->find(1);
+        $artikel = artikel::orderBy('id', 'DESC')->with(['Kategori', 'FotoBlog'])->get();
         $artikel = fractal($artikel, new ArtikelTransformer())->toArray();        
         return response()->json($artikel);
     }
 
-    public function artikel()
+    public function artikel($id)
     {
-        $ftb = foto_blog::all();
-        $ftb = fractal()
-                    ->collection($ftb)
-                    ->transformWith(new FotoBlogTransformer())
-                    ->toArray();        
+        $ftb = foto_blog::with(['Kategori', 'FotoBlog'])->find($id);
+        $ftb = fractal($ftb, new FotoBlogTransformer())->toArray();        
         return response()->json($ftb);
     }
 
