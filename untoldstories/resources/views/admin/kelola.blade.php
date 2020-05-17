@@ -30,6 +30,7 @@
             <th>Tag</th>
             <th>Kategori</th>
             <th>Gambar</th>
+            <th>Url</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -40,6 +41,7 @@
             <th>Tag</th>
             <th>Kategori</th>
             <th>Gambar</th>
+            <th>Url</th>
             <th>Aksi</th>
           </tr>
         </tfoot>
@@ -87,7 +89,7 @@
                   <span> {{ $as->url }} </span>  
                 </div>
                 <div class="col">    
-                  <button type="button" class="btn btn-sm btn-primary mt-3" data-artikelidss="{{ $a->id }}" data-namaimg="{{ $as->foto }}" data-toggle="modal" data-target="#modal-url">
+                  <button type="button" class="btn btn-sm btn-primary mt-3" data-artikldssparam="{{ $a->id }}" data-namaimg="{{ $as->foto }}" data-toggle="modal" data-target="#modal-url">
                     <i class="fas fa-edit"></i>
                   </button>
                 </div>
@@ -237,7 +239,7 @@
     <!-- form -->
         <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
-          <input type="text" name="artikel_id" id="artiklidss">
+          <input type="text" name="artikel_id" id="artikldss">
           <input type="text" name="url" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">
