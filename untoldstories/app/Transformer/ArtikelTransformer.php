@@ -8,6 +8,10 @@ use App\Transformer\FotoBlogTransformer;
 
 class ArtikelTransformer extends TransformerAbstract 
 {
+    protected $defaultIncludes = [
+        'FotoBlog'
+    ];
+
     public function transform(artikel $artikel)
     {
         return [
@@ -19,7 +23,12 @@ class ArtikelTransformer extends TransformerAbstract
         ];
     }
 
+    public function includeFotoBlog(artikel $artikel)
+    {
+        $Ftb = $artikel->FotoBlog->first();
 
+        return $this->item($Ftb, new FotoBlogTransformer);
+    }
 
 
     

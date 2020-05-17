@@ -19,7 +19,7 @@ class ArtikelController extends Controller
 {
     public function dashboard()
     {
-        $artikel = artikel::with('Kategori')->find(1);
+        $artikel = artikel::with(['Kategori','FotoBlog'])->find(1);
         $artikel = fractal($artikel, new ArtikelTransformer())->toArray();        
         return response()->json($artikel);
     }
