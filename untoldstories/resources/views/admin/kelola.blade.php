@@ -238,7 +238,7 @@
         <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input type="text" name="artikel_id" id="artiklidss">
-          <input type="text" name="url" id="url">
+          <input type="text" name="url" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
