@@ -31,6 +31,17 @@ class ArtikelController extends Controller
         return response()->json($artikel);
     }
 
+    public function kategori($id)
+    {
+    	$kategoris = kategori::find($id);
+        $artikel = artikel::where('kategori_id', $id)->paginate(6);
+        
+        for ($i=0; $i < count($artikel); $i++) { 
+            $tgl[$i] = Layout::bulan($artikel[$i]->tanggal);
+        }
+        
+    	return view('kategori', compact('kategoris', 'artikel', 'tgl'));
+    }
 
 
 }

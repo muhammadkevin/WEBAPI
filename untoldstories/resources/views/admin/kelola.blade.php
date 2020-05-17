@@ -82,6 +82,18 @@
               </div>
             </td>
             <td>
+              <div class="row">   
+                <div class="col">
+                  <span> {{ $as->url }} </span>  
+                </div>
+                <div class="col">    
+                  <button type="button" class="btn btn-sm btn-primary mt-3" data-artikelidss="{{ $a->id }}" data-namaimg="{{ $as->foto }}" data-toggle="modal" data-target="#modal-url">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td>
               <button class="btn btn-sm btn-warning mr-2 mt-2" data-judul="{{ $a->judul }}" data-idartikel="{{ $a->id }}" data-idlistz="{{ $a->Kategori['id'] }}" data-listname="{{ $a->Kategori['kategori'] }}" data-toggle="modal" data-target="#modal-judul">
             @endforeach
                 <i class="fas fa-heading"></i>
@@ -200,6 +212,33 @@
                 <option value="{{ $t->id }}">{{ $t->nama_tag }}</option>
               @endforeach
           </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+    <!-- end-form -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Url -->
+<div class="modal fade" id="modal-url" tabindex="-1" role="dialog" aria-labelledby="modalGambarLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalGambarLabel">Modal URL</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+    <!-- form -->
+        <form action="{{ url('/admin/artikelurlimage') }}" method="POST" enctype="multipart/form-data">
+          {{ csrf_field() }}
+          <input type="text" name="artikel_id" id="artiklidss">
+          <input type="text" name="url" id="url">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

@@ -11,7 +11,7 @@ class foto_blog extends Model
 
     protected $table = 'foto_blog';
     protected $dates = ['deleted_at'];
-    protected $fillable = ['artikel_id', 'foto'];
+    protected $fillable = ['artikel_id', 'foto', 'url'];
 
     public function Artikel()
     {
