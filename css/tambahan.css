@@ -1,0 +1,108 @@
+/*general*/
+.font-list-down{
+	font-family: 'Dosis', sans-serif;
+}
+.txtar{
+	height: 100px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+.bg-darkness{
+	background: #000;
+}
+.bg-gradient{
+	background: linear-gradient(#343A40,#000);
+}
+.bg-silver{
+	background: #f9f9f9	;
+}
+.link-none{
+	color: rgba(0,0,0,0.8);
+}
+.link-none:hover{
+	text-decoration: none;
+	color: red;
+	transition: .4s;
+}
+.bg-model{
+	background: rgba(0,0,0,0.55);
+}
+/*end-general*/
+
+/*navbar*/
+.find{
+	position: relative;
+}
+.icon-search{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+}
+.icon-search:hover{
+	transition: .4s;
+	color: red;
+}
+.logo-utama{
+	width: 120px;
+	height: 40px;
+}
+.list-down{
+	color: #fff;
+}
+.list-down:hover{
+	transition: .4s;
+	color: #dc3545;
+	background: inherit;
+}
+/*end-navbar*/
+
+
+/*index*/
+.list{
+	height: 270px;
+	overflow: hidden;
+}
+.title-depan{
+	height: 73px;	
+}
+
+
+/*detail*/
+.menu-balas{
+	position: fixed;
+	width: 80%;
+	top: -100%;
+	left: 10%;
+	-webkit-transition: top 0.4s;
+	transition: top 0.4s;
+	padding: 20px;
+	z-index: 1111;	
+}
+.menu-balas-tampil{
+	top: 20% !important;
+}
+.cls{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	cursor: pointer;
+}
+/*end-detail*/
+
+
+
+
+/*admin*/
+
+/*tambah*/
+#gambar{
+	display: none;
+}
+
+/*kelola*/
+#img_kelola{
+ 	width: 150px;
+ 	height: 100px;
+}
