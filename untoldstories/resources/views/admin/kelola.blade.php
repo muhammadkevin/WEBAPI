@@ -85,7 +85,7 @@
             </td>
             <td>
               <div class="row">   
-                <div class="col">
+                <div class="col" id="urlfotoblog">
                   <span> {{ $as->url }} </span>  
                 </div>
                 <div class="col">    
@@ -239,7 +239,7 @@
     <!-- form -->
         <form action="{{ url('/admin/artikelurlimage') }}" method="POST">
           {{ csrf_field() }}
-          <input type="text" name="idurl" id="artikldss">
+          <input type="hidden" name="idurl" id="artikldss">
           <input type="text" name="urlss" id="imgurl" class="form-control">
       </div>
       <div class="modal-footer">
