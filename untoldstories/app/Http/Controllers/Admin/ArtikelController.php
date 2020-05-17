@@ -47,7 +47,7 @@ class ArtikelController extends Controller
     	return redirect('admin/kelola');
     }
 
-    public function url(Reques $request)
+    public function url(Request $request)
     {
         $urlimg = $request->urlss;
         $idurl = $request->idurl;
