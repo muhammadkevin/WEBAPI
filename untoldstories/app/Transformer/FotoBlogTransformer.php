@@ -9,7 +9,8 @@ class FotoBlogTransformer extends TransformerAbstract
     public function transform(foto_blog $foto_blog)
     {
         return[
-            'img' => $foto_blog->foto
+            'img' => $foto_blog->foto,
+            'url' => $foto_blog->url
         ];
     }
 }
