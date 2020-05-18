@@ -16,8 +16,16 @@ use App\Transformer\KategoriTransformer;
 
 class KategoriController extends Controller
 {
-    public function allkategori(){
+    public function allkategori()
+    {
         $kategori = kategori::all();
+        $kategori = fractal($kategori, new KategoriTransformer())->toArray();
+        return response()->json($kategori);
+    }
+
+    public function getkategori($id)
+    {
+        $kategori = kategori::with('Artikel')->find($id);
 
         //apakah meminta artikelnya
         $manager = new Fractal\Manager();
@@ -27,7 +35,9 @@ class KategoriController extends Controller
         }
 
         $kategori = fractal($kategori, new KategoriTransformer())->toArray();
+        
         return response()->json($kategori);
+
     }
 
 }
