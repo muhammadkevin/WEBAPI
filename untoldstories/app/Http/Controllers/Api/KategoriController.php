@@ -20,9 +20,10 @@ class KategoriController extends Controller
         $kategori = kategori::all();
 
         //apakah meminta artikelnya
-        $manager = Fractal\Manager();
-        if(isset($_GET['include'])){
-            $manager->parseInclude($_GET['include']);
+        $manager = new Fractal\Manager();
+        
+        if (isset($_GET['include'])) {
+            $manager->parseIncludes($_GET['include']);
         }
 
         $kategori = fractal($kategori, new KategoriTransformer())->toArray();
