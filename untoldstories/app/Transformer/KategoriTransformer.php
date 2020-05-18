@@ -21,9 +21,9 @@ class KategoriTransformer extends TransformerAbstract
 
     public function includeArtikel(kategori $kategori)
     {
-        $artikel = $kategori->Artikel->first();
+        $artikel = $kategori->Artikel;
 
-        return $this->item($artikel, new ArtikelTransformer);
+        return $this->collection($artikel, new ArtikelTransformer);
     }
 
 
