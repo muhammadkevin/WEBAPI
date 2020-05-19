@@ -17,7 +17,6 @@ class CommentmTransformer extends TransformerAbstract
     {   
         return [
             'id' => $commentm->id,
-            'artikel_id' => $commentm->artikel_id
         ];
     }
 
