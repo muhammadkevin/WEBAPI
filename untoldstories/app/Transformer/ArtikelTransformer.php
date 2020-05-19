@@ -3,13 +3,21 @@ namespace App\Transformer;
 
 use League\Fractal\TransformerAbstract;
 use App\artikel;
+
+//transformer fractal
 use App\Transformer\FotoBlogTransformer;
+use App\Transformer\CommentmTransformer;
+
 
 
 class ArtikelTransformer extends TransformerAbstract 
 {
     protected $defaultIncludes = [
-        'FotoBlog'
+        'FotoBlog'        
+    ];
+
+    protected $availableIncludes = [
+        'Commentm'
     ];
 
     public function transform(artikel $artikel)
@@ -30,6 +38,14 @@ class ArtikelTransformer extends TransformerAbstract
         return $this->item($Ftb, new FotoBlogTransformer);
     }
 
+    public function includeCommentm(artikel $artikel)
+    {
+        $commentm = $artikel->Commentm;
 
+        return $this->collection($commentm, new CommentmTransformer);
+    }
     
+
+
+
 }
