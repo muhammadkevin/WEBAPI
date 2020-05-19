@@ -7,7 +7,7 @@ use App\commentd;
 
 class CommentdTransformer extends TransformerAbstract
 {
-    public function transformer(commentd $commentd)
+    public function transform(commentd $commentd)
     {
         return [
             'id' => $commentd->id,

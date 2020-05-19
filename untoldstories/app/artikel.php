@@ -25,7 +25,7 @@ class artikel extends Model
 
     public function Commentm()
     {
-    	return $this->hasMany('App\Commentm');
+    	return $this->hasMany('App\commentm');
     }
     public function Tag()
     {
