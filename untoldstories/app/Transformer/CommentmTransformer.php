@@ -16,7 +16,8 @@ class CommentmTransformer extends TransformerAbstract
     public function transform(commentm $commentm)
     {   
         return [
-            'id' => $commentm->id
+            'id' => $commentm->id,
+            'artikel_id' => $commentm->artikel_id
         ];
     }
 
