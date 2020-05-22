@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 //libraries
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use League\Fractal;
 
 //models
 use App\tag;
@@ -23,7 +24,17 @@ class TagController extends Controller
         return response()->json($tag);
     }
 
+    public function tag($id){
+        $tag = tag::with(['Artikel'])->find($id);
+        
+        $manager = new Fractal\Manager();
+        if(isset($_GET['include'])){
+            $manager->parseIncludes($_GET['include']);
+        }
 
+        $tag = fractal($tag, new TagTransformer());
+        return response()->json($tag);
+    }
 
 
 

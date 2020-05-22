@@ -13,4 +13,4 @@ Route::get('/kategori/{id}', 'Api\KategoriController@getkategori');
 
 //tag
 Route::get('/alltag', 'Api\TagController@alltag');
-// Route::get('/tag/{id}', 'Api');
+Route::get('/tag/{id}', 'Api\TagController@tag');
