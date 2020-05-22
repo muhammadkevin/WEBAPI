@@ -9,24 +9,23 @@ use App\tag;
 
 class TagTransformer extends TransformerAbstract
 {
-    // protected $availableIncludes = [
-    //     'Artikel'
-    // ];
+    protected $availableIncludes = [
+        'Artikel'
+    ];
 
     public function transform(tag $tag)
     {
         return[
             'id' => $tag->id,
             'tag' => $tag->nama_tag,
-            'Artikel' => $tag->Artikel
         ];
     }
 
-    // public function includeArtikel(tag $tag)
-    // {
-    //     $artikel = $tag->Artikel;
+    public function includeArtikel(tag $tag)
+    {
+        $artikel = $tag->Artikel;
 
-    //     return $this->collection($artikel, new ArtikelTransformer);
-    // }
+        return $this->collection($artikel, new ArtikelTransformer);
+    }
 
 }
