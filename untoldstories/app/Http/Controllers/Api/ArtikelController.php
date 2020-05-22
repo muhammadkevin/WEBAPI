@@ -42,7 +42,7 @@ class ArtikelController extends Controller
     public function getTanggal($param)
     {
         $tanggal = artikel::where('tanggal', $param)->get();
-        $tanggal = fractal($tanggal, new ArtikelTransformer())->toArray();
+        // $tanggal = fractal($tanggal, new ArtikelTransformer())->toArray();
 
         return response()->json($taggal);
     }
