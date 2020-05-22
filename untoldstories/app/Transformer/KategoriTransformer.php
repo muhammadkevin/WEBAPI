@@ -15,7 +15,8 @@ class KategoriTransformer extends TransformerAbstract
     {
         return[
             'id' => $kategori->id,
-            'kategori' => $kategori->kategori
+            'kategori' => $kategori->kategori,
+            'deskripsi' => $kategori->deskripsi
         ];
     }
 
