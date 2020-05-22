@@ -23,7 +23,7 @@ class TagTransformer extends TransformerAbstract
 
     public function includeArtikel(tag $tag)
     {
-        $artikel = $tag->artikel;
+        $artikel = $tag->Artikel;
         return $this->collection($artikel, new ArtikelTransformer);
     }
 
