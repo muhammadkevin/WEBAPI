@@ -24,6 +24,7 @@ class ArtikelTransformer extends TransformerAbstract
     {
         return [
             'id' => $artikel->id,
+            'id_kategori' => $artikel->Kategori->kategori_id,
             'kategori' => $artikel->Kategori->kategori,
             'judul' => $artikel->judul,
             'isi' => $artikel->isi,
