@@ -39,7 +39,7 @@ class ArtikelController extends Controller
     }
 
     //pencarian berdasarkan tanggal
-    public function getTanggal($id)
+    public function gettanggal($id)
     {
         $tanggal = artikel::where('id', $id)->get();
         // $tanggal = fractal($tanggal, new ArtikelTransformer())->toArray();
