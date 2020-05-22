@@ -20,7 +20,7 @@ class TagController extends Controller
     public function alltag()
     {
         $tag = tag::all();
-        $tag = fractal($tag, new TagTransformer());
+        $tag = fractal($tag, new TagTransformer())->toArray();
         return response()->json($tag);
     }
 
@@ -32,7 +32,7 @@ class TagController extends Controller
             $manager->parseIncludes($_GET['include']);
         }
 
-        $tag = fractal($tag, new TagTransformer());
+        $tag = fractal($tag, new TagTransformer())->toArray();
         return response()->json($tag);
     }
 
