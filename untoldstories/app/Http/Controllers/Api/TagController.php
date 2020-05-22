@@ -25,7 +25,7 @@ class TagController extends Controller
     }
 
     public function tag($id){
-        $tag = tag::with(['Artikel'])->find($id);
+        $tag = tag::with(['Artikel'])->where('id',$id)->get();
         
         $manager = new Fractal\Manager();
         if(isset($_GET['include'])){
