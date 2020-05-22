@@ -16,7 +16,7 @@ use App\Transformer\TagTransformer;
 
 class TagController extends Controller
 {
-    public function allTag()
+    public function alltag()
     {
         $tag = tag::all();
         $tag = fractal($tag, new TagTransformer());
