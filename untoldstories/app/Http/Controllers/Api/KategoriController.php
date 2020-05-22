@@ -25,7 +25,7 @@ class KategoriController extends Controller
 
     public function getkategori($id)
     {
-        $kategori = kategori::with('Artikel')->find($id);
+        $kategori = kategori::with('Artikel')->where('id', $id)->get();
 
         //apakah meminta artikelnya
         $manager = new Fractal\Manager();
