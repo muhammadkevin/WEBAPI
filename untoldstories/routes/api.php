@@ -16,4 +16,4 @@ Route::get('/alltag', 'Api\TagController@alltag');
 Route::get('/tag/{id}', 'Api\TagController@tag');
 
 //tanggal
-Route::get('/tanggal/{param}', 'Api\ArtikelController@getTanggal');
+Route::get('/tanggal/{id}', 'Api\ArtikelController@getTanggal');
