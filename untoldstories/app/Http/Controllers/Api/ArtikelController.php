@@ -38,4 +38,14 @@ class ArtikelController extends Controller
         return response()->json($artikel);
     }
 
+    //pencarian berdasarkan tanggal
+    public function getTanggal($param)
+    {
+        $tanggal = artikel::where('tanggal', $param);
+        $tanggal = fractal($tanggal, new ArtikelTransformer());
+
+        return response()->json($taggal);
+    }
+
+
 }
