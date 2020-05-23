@@ -27,7 +27,7 @@ class ArtikelController extends Controller
 
     public function artikel($id)
     {
-        $artikel = artikel::with(['Kategori', 'FotoBlog', 'Commentm.Commentd'])->find($id);
+        $artikel = artikel::with(['Kategori', 'FotoBlog', 'Commentm.Commentd', 'Tag'])->find($id);
         
         $manager = new Fractal\Manager();
         if(isset($_GET['include'])){

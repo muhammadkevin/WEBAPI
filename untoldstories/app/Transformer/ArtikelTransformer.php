@@ -7,6 +7,7 @@ use App\artikel;
 //transformer fractal
 use App\Transformer\FotoBlogTransformer;
 use App\Transformer\CommentmTransformer;
+use App\Transformer\TagTransformer;
 
 
 
@@ -17,7 +18,8 @@ class ArtikelTransformer extends TransformerAbstract
     ];
 
     protected $availableIncludes = [
-        'Commentm'
+        'Commentm',
+        'Tag'
     ];
 
     public function transform(artikel $artikel)
@@ -44,6 +46,13 @@ class ArtikelTransformer extends TransformerAbstract
         $commentm = $artikel->Commentm;
 
         return $this->collection($commentm, new CommentmTransformer);
+    }
+
+    public function includeTag(artikel $artikel)
+    {
+        $tag = $artikel->Tag;
+
+        return $this->collection($tag, new TagTransformer);
     }
     
 
