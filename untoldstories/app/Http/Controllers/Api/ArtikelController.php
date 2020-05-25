@@ -37,7 +37,7 @@ class ArtikelController extends Controller
 
         if(empty($artikel->Commentm[0])){
             $artikel = fractal($artikel, new ArtikelTransformer())->toArray();   
-            return response()->json($artikel);
+            return response()->json(['artikel' => $artikel]);
         }else{
             // ambil comment teratas
             for ($i=0; $i < count($artikel->Commentm) ; $i++) { 
