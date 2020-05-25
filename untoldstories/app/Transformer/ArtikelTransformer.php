@@ -18,7 +18,6 @@ class ArtikelTransformer extends TransformerAbstract
     ];
 
     protected $availableIncludes = [
-        'Commentm',
         'Tag'
     ];
 
@@ -39,13 +38,6 @@ class ArtikelTransformer extends TransformerAbstract
         $Ftb = $artikel->FotoBlog->first();
 
         return $this->item($Ftb, new FotoBlogTransformer);
-    }
-
-    public function includeCommentm(artikel $artikel)
-    {
-        $commentm = $artikel->Commentm;
-
-        return $this->collection($commentm, new CommentmTransformer);
     }
 
     public function includeTag(artikel $artikel)
