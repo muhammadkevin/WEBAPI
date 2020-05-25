@@ -41,7 +41,8 @@ class ArtikelController extends Controller
 
     	foto_blog::create([
     		'artikel_id' => $find_id,
-    		'foto' => $name_file
+            'foto' => $name_file,
+            'url' => ''
     	]);
 
     	return redirect('admin/kelola');
