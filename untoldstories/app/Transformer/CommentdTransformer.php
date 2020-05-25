@@ -11,6 +11,7 @@ class CommentdTransformer extends TransformerAbstract
     {
         return [
             'id' => $commentd->id,
+            'commentm' => $commentd->commentm_id,
             'username' => $commentd->nama,
             'email' => $commentd->email,
             'isi' => $commentd->isi
