@@ -1,8 +1,11 @@
 <?php
 namespace App\Transformer;
 
+//libraries
 use League\Fractal\TransformerAbstract;
 use App\Transformer\ArtikelTransformer;
+
+//models
 use App\kategori;
 
 class KategoriTransformer extends TransformerAbstract
