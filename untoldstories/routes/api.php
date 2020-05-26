@@ -17,3 +17,6 @@ Route::get('/tag/{id}', 'Api\TagController@tag');
 
 //tanggal
 Route::get('/tanggal/{param}', 'Api\ArtikelController@gettanggal');
+
+//comment
+Route::post('/comment/post', 'Api\CommentController@commentpost');
