@@ -49,7 +49,7 @@ class SearchController extends Controller
             $artikel = "Pencarian Tidak Ditemukan";
         }
 
-        return reponse()->json($artikel);
+        return response()->json($artikel);
     }
 
 
