@@ -20,3 +20,6 @@ Route::get('/tanggal/{param}', 'Api\ArtikelController@gettanggal');
 
 //comment
 Route::post('/comment/post', 'Api\CommentController@commentpost');
+
+//search
+Route::get('/search', 'Api\SearchController@search');
