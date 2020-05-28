@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Htpp\Controllers\Api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Transformer\CommentdTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Suport\Facades\DB;
 
