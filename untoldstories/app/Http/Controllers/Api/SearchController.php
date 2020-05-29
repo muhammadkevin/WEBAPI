@@ -6,50 +6,53 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Transformer\SearchTransformer;
+//model
+use App\artikel;
+use App\kategori;
+use App\tag;
+
+
+use App\Transformer\Search\ArtikelSearchTransformer;
+
+
+
 
 
 class SearchController extends Controller
 {
     public function search(Request $request){
         $cari = $request->cari;
-        $artikel = array();
 
-        //berdasarkan judul perkata
-        $art = DB::table('artikel')
-                    ->join('kategori', 'artikel.kategori_id','=','kategori.id')
-                    ->join('foto_blog', 'artikel.id','=','foto_blog.artikel_id')
-                    ->where('judul','like',"%".$cari."%")
-                    ->orWhere('isi','like',"%".$cari."%")
-                    ->orWhere('tanggal','like',"%".$cari."%")->get();
-                     
-        if(!empty($art[0]->id)){
-            $artikel[] = fractal($art, new SearchTransformer());
-        }else{
-            $kategori = DB::table('kategori')
-                ->join('artikel', 'kategori.id', '=', 'artikel.kategori_id')
-                ->join('foto_blog', 'artikel.id', '=', 'foto_blog.artikel_id')
-                ->where('kategori.kategori','like',"%".$cari."%")->get();
+        $art = artikel::with(['Kategori','FotoBlog'])->when(
+                $request->cari, function ($query) use ($request){
+                    $query->where('judul', 'like', "%" . $request->cari . "%") 
+                    ->orWhere('isi', 'like', "%" . $request->cari . "%") 
+                    ->orWhere('tanggal', 'like', "%" . $request->cari . "%");  
+                })->get();
+    
+        $kategori = kategori::when(
+            $request->cari, function ($query) use ($request){
+                $query->where('kategori', 'like', "%" . $request->cari . "%"); 
+            })->get();
+
+        $tag = tag::when(
+            $request->cari, function ($query) use ($request){
+                $query->where('nama_tag', 'like', "%" . $request->cari . "%"); 
+            })->get();
+
+
+        if(!empty($art)){
+            $artikel[] = fractal($art, new ArtikelSearchTransformer());
         }
         
-        if(!empty($kategori[0]->id)){
-            $artikel[] = fractal($kategori, new SearchTransformer());
-        }else{
-            $tag = DB::table('tag')
-                ->join('artikel_tag', 'tag.id', '=', 'artikel_tag.tag_id')
-                ->join('artikel', 'artikel.id', '=', 'artikel_tag.artikel_id')
-                ->join('kategori', 'artikel.kategori_id','=','kategori.id')
-                ->join('foto_blog', 'artikel.id', '=', 'foto_blog.artikel_id')
-                ->where('nama_tag','like','%'.$cari.'%')->get();
+        if(!empty($kategori)){
+            $artikel[] = fractal($kategori, new KategoriSearchTransformer());
         }
 
-        if(!empty($tag[0]->id)){
-            $artikel[] = fractal($tag, new SearchTransformer());
+        if(!empty($tag)){
+            $artikel[] = fractal($tag, new TagSearchTransformer());
         }
 
-        if(empty($artikel)){
-            $artikel = "Pencarian Tidak Ditemukan";
-        }
 
         return response()->json($artikel);
     }
