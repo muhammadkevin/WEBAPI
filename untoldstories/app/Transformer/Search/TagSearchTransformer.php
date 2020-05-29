@@ -12,7 +12,7 @@ class TagSearchTransformer extends TransformerAbstract
 		return[
 			'konteks' => 'tag',
 			'id' => $tag->id,
-			'tag' => $tag->nama_tag
+			'judul' => $tag->nama_tag
 		];
 	}
 } 

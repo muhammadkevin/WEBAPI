@@ -12,7 +12,7 @@ class KategoriSearchTransformer extends TransformerAbstract
 		return[
 			'konteks' => 'kategori',
 			'id' => $kategori->id,
-			'kategori' => $kategori->kategori
+			'judul' => $kategori->kategori
 		];
 	}
 } 
