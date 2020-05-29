@@ -24,6 +24,7 @@ class SearchController extends Controller
 {
     public function search(Request $request){
         $cari = $request->cari;
+        $artikel = array();
 
         $art = artikel::with(['Kategori','FotoBlog'])->when(
                 $request->cari, function ($query) use ($request){
@@ -43,15 +44,15 @@ class SearchController extends Controller
             })->get();
 
 
-        if(!empty($art)){
+        if(!empty($art[0]->id)){
             $artikel[] = fractal($art, new ArtikelSearchTransformer());
         }
         
-        if(!empty($kategori)){
+        if(!empty($kategori[0]->id)){
             $artikel[] = fractal($kategori, new KategoriSearchTransformer());
         }
 
-        if(!empty($tag)){
+        if(!empty($tag[0]->id)){
             $artikel[] = fractal($tag, new TagSearchTransformer());
         }
 
