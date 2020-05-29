@@ -13,6 +13,8 @@ use App\tag;
 
 
 use App\Transformer\Search\ArtikelSearchTransformer;
+use App\Transformer\Search\KategoriSearchTransformer;
+use App\Transformer\Search\TagSearchTransformer;
 
 
 
