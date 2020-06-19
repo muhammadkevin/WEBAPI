@@ -43,10 +43,11 @@ class UserController extends Controller
     	}
 
     	$users = $user::find(Auth::user()->id)
-    	return fractal()
-    			->item($users)
-    			->transformWith(new UserTransformer)
-    			->addMeta(['token' => $users->api_token])
-    			->toArray();
+        return $users->email;
+    	// return fractal()
+    	// 		->item($users)
+    	// 		->transformWith(new UserTransformer)
+    	// 		->addMeta(['token' => $users->api_token])
+    	// 		->toArray();
     }
 }
