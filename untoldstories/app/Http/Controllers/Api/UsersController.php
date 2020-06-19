@@ -9,7 +9,7 @@ use Auth;
 
 
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function users(User $user){
         $users = $user->all();
