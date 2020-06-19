@@ -11,7 +11,7 @@ use Auth;
 
 class UserController extends Controller
 {
-    public function user(User $user){
+    public function users(User $user){
         $users = $user->all();
         $users = fractal($user, new UserTransformer())->toArray();
         return response()->json($users); 
