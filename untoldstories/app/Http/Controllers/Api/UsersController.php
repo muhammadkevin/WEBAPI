@@ -55,3 +55,6 @@ class UsersController extends Controller
             ])
             ->toArray();
     }
+
+}
+
