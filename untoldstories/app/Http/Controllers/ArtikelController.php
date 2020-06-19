@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use App\ClassTambahan\Layout;
 use App\kategori;
 use App\artikel;
 use App\commentm;
 use App\commentd;
 use App\foto_blog;
 use App\tag;
-use App\ClassTambahan\Layout;
 
 
 class ArtikelController extends Controller

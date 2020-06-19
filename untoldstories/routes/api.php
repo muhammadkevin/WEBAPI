@@ -23,3 +23,8 @@ Route::post('/comment/post', 'Api\CommentController@commentpost');
 
 //search
 Route::get('/search', 'Api\SearchController@search');
+
+//user
+Route::get('/users', 'Api\UserController@users');
+Route::post('/auth/register', 'Api\UserController@register');
+Route::post('/auth/login', 'Api\UserController@login');
