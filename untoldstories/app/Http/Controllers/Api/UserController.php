@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function users(User $user){
         $users = $user->all();
-        $users = fractal($user, new UserTransformer())->toArray();
+        $users = fractal($users, new UserTransformer())->toArray();
         return response()->json($users); 
     }
 
@@ -38,16 +38,17 @@ class UserController extends Controller
     }
 
     public function login(Request $request, User $user){
-    	if(!Auth::attemp(['email' => $request->email, 'password' => $request->password])){
-    		return response()->json(['error' => 'email dan password salah', 401]);
-    	}
+    	if(!Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            return response()->json(['error' => 'email dan password tidak cocok', 401]);
+        }
 
-    	$users = $user::find(Auth::user()->id)
-        return $users->email;
-    	// return fractal()
-    	// 		->item($users)
-    	// 		->transformWith(new UserTransformer)
-    	// 		->addMeta(['token' => $users->api_token])
-    	// 		->toArray();
+        $users = $user->find(Auth::user()->id);
+        return fractal()
+            ->item($users)
+            ->transformWith(new UserTransformer)
+            ->addMeta([
+                'token' => $users->api_token
+            ])
+            ->toArray();
     }
 }
