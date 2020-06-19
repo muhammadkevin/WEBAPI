@@ -26,5 +26,5 @@ Route::get('/search', 'Api\SearchController@search');
 
 //user
 Route::get('/users', 'Api\UsersController@users');
-Route::post('/auth/register', 'Api\UsersController@register');
+Route::post('/auth/registers', 'Api\UsersController@registers');
 Route::post('/auth/login', 'Api\UsersController@login');
